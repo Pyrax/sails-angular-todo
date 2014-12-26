@@ -1,3 +1,3 @@
 # sails-angular-todo
 
-a [Sails](http://sailsjs.org) application
+A TODO application developed with Sails.js + AngularJS + Websockets

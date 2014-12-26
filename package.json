@@ -2,7 +2,7 @@
   "name": "sails-angular-todo",
   "private": true,
   "version": "0.0.1",
-  "description": "a Sails application",
+  "description": "A TODO application developed with Sails.js + AngularJS + Websockets",
   "keywords": [],
   "dependencies": {
     "sails": "~0.10.5",
