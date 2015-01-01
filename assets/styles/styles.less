@@ -1,0 +1,38 @@
+.main-container {
+  .animated;
+
+  position: absolute;
+  left: 50%;
+
+  @media (max-width: @screen-sm-min) {
+    left: 0;
+    right: 0;
+  }
+  @media (min-width: @screen-sm-min) {
+    margin-left: -(@container-sm/2);
+  }
+  @media (min-width: @screen-md-min) {
+    margin-left: -(@container-md/2);
+  }
+  @media (min-width: @screen-lg-min) {
+    margin-left: -(@container-lg/2);
+  }
+
+  &.ng-enter {
+    .fadeInLeft;
+
+    -webkit-animation-duration: 0.3s;
+    -moz-animation-duration: 0.3s;
+    -o-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+  }
+
+  &.ng-leave {
+    .fadeOutRight;
+
+    -webkit-animation-duration: 0.3s;
+    -moz-animation-duration: 0.3s;
+    -o-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+  }
+}

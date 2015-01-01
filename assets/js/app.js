@@ -4,7 +4,7 @@
 
 (function() {
 
-  var app = angular.module('app', ['ngRoute', 'app.todoModule', 'app.taskModule']);
+  var app = angular.module('app', ['ngAnimate', 'ngRoute', 'app.todoModule', 'app.taskModule']);
 
   app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({
