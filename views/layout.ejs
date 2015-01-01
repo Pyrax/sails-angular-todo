@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <title>Sails.js Todo</title>
 
@@ -28,6 +28,7 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
@@ -87,8 +88,20 @@
 
     -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.28/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.28/angular-route.min.js"></script>
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/angular-resource.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/app/task/TaskController.js"></script>
+    <script src="/js/app/task/TaskModule.js"></script>
+    <script src="/js/app/task/TaskService.js"></script>
+    <script src="/js/app/task/TaskView.js"></script>
+    <script src="/js/app/todo/TodoController.js"></script>
+    <script src="/js/app/todo/TodoModule.js"></script>
+    <script src="/js/app/todo/TodoService.js"></script>
+    <script src="/js/app/todo/TodoView.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
