@@ -49,13 +49,7 @@ module.exports = {
         }
       }
 
-      todo.save(function(err) {
-        if(err) {
-          return cb(err);
-        }
-
-        cb();
-      });
+      todo.save(cb);
     });
   },
 
@@ -66,13 +60,7 @@ module.exports = {
       }
 
       todo.tasksCount ++;
-      todo.save(function(err) {
-        if(err) {
-          return cb(err);
-        }
-
-        cb();
-      });
+      todo.save(cb);
     });
   },
 
