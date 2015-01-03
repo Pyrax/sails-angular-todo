@@ -72,8 +72,14 @@ module.exports = {
         return cb(err);
       }
 
+      if(!todos.length) {
+        return cb();
+      }
+
       var tasks = _.groupBy(destroyedTasks, 'list');
-      var finished = _.after(todos.length, cb);
+      var finished = _.after(todos.length, function(err) {
+        return cb(err);
+      });
 
       todos.forEach(function(todo, idx, array) {
         todo.tasksDone -= (_.where(tasks[todo.id], {
