@@ -7,6 +7,25 @@
 
 module.exports = {
 
+  attributes: {
+
+    description: {
+      type: 'string',
+      required: true
+    },
+
+    done: {
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    list: {
+      model: 'Todo',
+      required: true
+    }
+
+  },
+
   _statusChanged: false,
 
   beforeUpdate: function(valuesToUpdate, cb) {
@@ -77,58 +96,7 @@ module.exports = {
         todo.save(finished);
       });
     });
-
-    /* DEPRECATED CODE (SEE ABOVE)
-       Universal solution using underscore if our application allows to
-       destroy multiple tasks from different todo-lists at the same time
-
-    var finished = _.after(destroyedTasks.length, function(err) {
-      if(err) {
-        return cb(err);
-      }
-
-      cb();
-    });
-
-    _.each(destroyedTasks, function(task, idx, array) {
-      Todo.findOne(task.list).exec(function(err, todo) {
-        if(err) {
-          return finished(err);
-        }
-
-        if(task.done) {
-          todo.tasksDone --;
-        }
-
-        todo.tasksCount --;
-        todo.save(function(err) {
-          if(err) {
-            return finished(err);
-          }
-
-          finished();
-        });
-      })
-    }); */
-  },
-
-  attributes: {
-
-    description: {
-      type: 'string',
-      required: true
-    },
-
-    done: {
-      type: 'boolean',
-      defaultsTo: false
-    },
-
-    list: {
-      model: 'Todo',
-      required: true
-    }
-
   }
+
 };
 
