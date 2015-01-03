@@ -59,6 +59,10 @@ module.exports = {
 
   afterDestroy: function(destroyedTasks, cb) {
     Todo.findOne(destroyedTasks[0].list).exec(function(err, todo) {
+      if(err) {
+        return cb(err);
+      }
+
       destroyedTasks.forEach(function(task, idx, array) {
         if(task.done) {
           todo.tasksDone --;
