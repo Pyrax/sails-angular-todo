@@ -7,15 +7,15 @@
 
 module.exports = {
 
-  statusChanged: false,
+  _statusChanged: false,
 
   beforeUpdate: function(valuesToUpdate, cb) {
-    this.statusChanged = (valuesToUpdate.done !== 'undefined');
+    this._statusChanged = (valuesToUpdate.done !== 'undefined');
     cb();
   },
 
   afterUpdate: function(values, cb) {
-    var statusChanged = this.statusChanged;
+    var statusChanged = this._statusChanged;
 
     Todo.findOne(values.list).exec(function(err, todo) {
       if(err) {
