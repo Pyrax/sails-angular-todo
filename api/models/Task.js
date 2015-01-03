@@ -63,21 +63,23 @@ module.exports = {
         return cb(err);
       }
 
-      destroyedTasks.forEach(function(task, idx, array) {
-        if(task.done) {
-          todo.tasksDone --;
-        }
+      if(todo) {
+        destroyedTasks.forEach(function (task, idx, array) {
+          if (task.done) {
+            todo.tasksDone--;
+          }
 
-        todo.tasksCount --;
-      });
+          todo.tasksCount--;
+        });
 
-      todo.save(function(err) {
-        if(err) {
-          return cb(err);
-        }
+        todo.save(function (err) {
+          if (err) {
+            return cb(err);
+          }
 
-        cb();
-      });
+          cb();
+        });
+      }
     });
 
     /* Universal solution using underscore if our application allows to

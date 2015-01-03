@@ -31,6 +31,12 @@ module.exports = {
       via: 'list'
     }
 
-  }
-};
+  },
 
+  afterDestroy: function(destroyedTodos, cb) {
+    Task.destroy({
+      list: _.pluck(destroyedTodos, 'id')
+    }).exec(cb);
+  }
+
+};
