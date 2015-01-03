@@ -58,31 +58,28 @@ module.exports = {
   },
 
   afterDestroy: function(destroyedTasks, cb) {
-    Todo.findOne(destroyedTasks[0].list).exec(function(err, todo) {
+    Todo.find({
+      id: _.uniq(_.pluck(destroyedTasks, 'list'))
+    }).exec(function(err, todos) {
       if(err) {
         return cb(err);
       }
 
-      if(todo) {
-        destroyedTasks.forEach(function (task, idx, array) {
-          if (task.done) {
-            todo.tasksDone--;
-          }
+      var tasks = _.groupBy(destroyedTasks, 'list');
+      var finished = _.after(todos.length, cb);
 
-          todo.tasksCount--;
-        });
+      todos.forEach(function(todo, idx, array) {
+        todo.tasksDone -= (_.where(tasks[todo.id], {
+          done: true
+        })).length;
 
-        todo.save(function (err) {
-          if (err) {
-            return cb(err);
-          }
-
-          cb();
-        });
-      }
+        todo.tasksCount -= tasks[todo.id].length;
+        todo.save(finished);
+      });
     });
 
-    /* Universal solution using underscore if our application allows to
+    /* DEPRECATED CODE (SEE ABOVE)
+       Universal solution using underscore if our application allows to
        destroy multiple tasks from different todo-lists at the same time
 
     var finished = _.after(destroyedTasks.length, function(err) {
