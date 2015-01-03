@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-  
+
   attributes: {
 
     name: {
@@ -14,6 +14,16 @@ module.exports = {
       unique: true,
       required: true,
       size: 64
+    },
+
+    tasksDone: {
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    tasksCount: {
+      type: 'integer',
+      defaultsTo: 0
     },
 
     tasks: {

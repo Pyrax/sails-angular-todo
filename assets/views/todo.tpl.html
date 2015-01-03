@@ -22,7 +22,8 @@
         <tbody>
           <tr class="table-list" ng-repeat="todo in todos">
             <td>{{ todo.name }}</td>
-            <td>-</td>
+            <td ng-if="!todo.tasksCount">-</td>
+            <td ng-if="todo.tasksCount">{{ todo.tasksDone }}/{{ todo.tasksCount }}</td>
             <td>
               <button class="btn btn-link btn-xs btn-block" ng-click="destroyTodo($index)">
                 <i class="glyphicon glyphicon-trash"></i>
