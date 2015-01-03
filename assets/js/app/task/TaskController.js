@@ -36,6 +36,16 @@
           $scope.todoList.tasks.splice(idx, 1);
       });
     };
+
+    $scope.updateTaskStatus = function(task) {
+      $task.update({
+        task_id: task.id
+      }, {
+        done: !task.done
+      }).$promise.then(function(result) {
+        task.done = !task.done;
+      });
+    };
   }]);
 
 })();
