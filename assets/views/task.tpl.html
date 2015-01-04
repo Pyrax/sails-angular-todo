@@ -43,6 +43,8 @@
       </table>
     </div>
 
+    <p ng-if="todoList.tasksCount">{{ todoList.tasksDone }}/{{ todoList.tasksCount }} Tasks done</p>
+    
     <form class="form-horizontal" ng-submit="addTask()">
       <div class="form-group form-group-sm">
         <label class="sr-only" for="addTaskName">Add task to list</label>

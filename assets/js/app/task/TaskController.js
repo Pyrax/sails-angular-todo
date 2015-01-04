@@ -44,6 +44,12 @@
         done: !task.done
       }).$promise.then(function(result) {
         task.done = !task.done;
+
+        if(task.done) {
+          $scope.todoList.tasksDone ++;
+        } else {
+          $scope.todoList.tasksDone --;
+        }
       });
     };
   }]);
