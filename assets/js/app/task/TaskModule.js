@@ -4,6 +4,6 @@
 
 (function() {
 
-  var taskModule = angular.module('app.taskModule', ['app.taskView', 'app.taskController']);
+  var taskModule = angular.module('app.taskModule', ['app.taskView', 'app.taskController', 'app.taskFilter']);
 
 })();

@@ -24,7 +24,7 @@
         </thead>
 
         <tbody>
-          <tr class="table-list" ng-repeat="task in todoList.tasks">
+          <tr class="table-list" ng-repeat="task in todoList.tasks | filter:activeFilter">
             <td class="text-center">
               <button class="btn btn-link btn-xs btn-block" ng-click="updateTaskStatus(task)">
                 <i ng-if="task.done" class="glyphicon glyphicon-ok text-success"></i>
@@ -43,8 +43,16 @@
       </table>
     </div>
 
-    <p ng-if="todoList.tasksCount">{{ todoList.tasksDone }}/{{ todoList.tasksCount }} Tasks done</p>
-    
+    <p ng-if="todoList.tasksCount" class="col-xs-4">{{ todoList.tasksDone }}/{{ todoList.tasksCount }} Tasks done</p>
+
+    <div class="col-xs-8">
+      <div class="pull-right btn-group btn-group-xs">
+        <button class="btn btn-default" ng-class="filterAllClass" ng-click="setFilter()">All</button>
+        <button class="btn btn-default" ng-class="filterActiveClass" ng-click="setFilter(true)">Active</button>
+        <button class="btn btn-default" ng-class="filterDoneClass" ng-click="setFilter(false)">Done</button>
+      </div>
+    </div>
+
     <form class="form-horizontal" ng-submit="addTask()">
       <div class="form-group form-group-sm">
         <label class="sr-only" for="addTaskName">Add task to list</label>

@@ -6,8 +6,29 @@
 
   var taskController = angular.module('app.taskController', ['app.taskService']);
 
-  taskController.controller('TaskController', ['$scope', '$location', '$routeParams', '$task', 'todoList', function($scope, $location, $routeParams, $task, todoList) {
+  taskController.controller('TaskController', ['$scope', '$location', '$routeParams', '$task', 'todoList', 'tasksActiveFilter',
+    function($scope, $location, $routeParams, $task, todoList, tasksActiveFilter) {
+
     $scope.todoList = todoList;
+
+    $scope.setFilter = function(doSet) {
+      $scope.activeFilter = doSet;
+
+      $scope.filterAllClass = undefined;
+      $scope.filterActiveClass = undefined;
+      $scope.filterDoneClass = undefined;
+
+      if(typeof doSet === 'undefined') {
+        $scope.filterAllClass = 'disabled';
+      } else {
+        if(doSet) {
+          $scope.filterActiveClass = 'disabled';
+        } else {
+          $scope.filterDoneClass = 'disabled';
+        }
+      }
+    };
+    $scope.setFilter();
 
     $scope.viewTodos = function() {
       $location.path('/todo');
