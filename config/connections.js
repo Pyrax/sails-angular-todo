@@ -75,7 +75,7 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   postgreSql: {
-    adapter: 'sails-postgresgql',
+    adapter: 'sails-postgresql',
     host: process.env.postgreHost,
     user: process.env.postgreUser,
     password: process.env.postgrePassword,
