@@ -19,8 +19,6 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.connections.html
  */
 
-var postgreSecrets = require('./secret/postgreAuth.js');
-
 module.exports.connections = {
 
   /***************************************************************************
@@ -78,10 +76,10 @@ module.exports.connections = {
   ***************************************************************************/
   postgreSql: {
     adapter: 'sails-postgresql',
-    host: postgreSecrets.host,
-    user: postgreSecrets.user,
-    password: postgreSecrets.password,
-    database: postgreSecrets.database
+    host: '',
+    user: '',
+    password: '',
+    database: ''
   }
 
 

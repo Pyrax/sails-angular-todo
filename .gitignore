@@ -28,8 +28,3 @@ node_modules
 .lock-wscript
 
 .tmp
-
-# Secret data containing passwords and other sensitive information
-# However publish the example.js
-config/secret/*
-!config/secret/*.example.js
