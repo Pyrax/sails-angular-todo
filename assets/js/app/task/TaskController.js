@@ -20,6 +20,7 @@
 
       if(typeof doSet === 'undefined') {
         $scope.filterAllClass = 'disabled';
+        $scope.activeFilter = undefined;
       } else {
         if(doSet) {
           $scope.filterActiveClass = 'disabled';
