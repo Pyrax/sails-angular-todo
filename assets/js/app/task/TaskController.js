@@ -47,6 +47,7 @@
         delete result.$resolved;
 
         $scope.todoList.tasks.push(result);
+        $scope.todoList.tasksCount ++;
       });
     };
 
@@ -55,6 +56,7 @@
         task_id: $scope.todoList.tasks[idx].id
       }).$promise.then(function(result) {
           $scope.todoList.tasks.splice(idx, 1);
+          $scope.todoList.tasksCount --;
       });
     };
 
