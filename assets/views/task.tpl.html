@@ -44,6 +44,7 @@
     </div>
 
     <p ng-if="todoList.tasksCount" class="col-xs-4">{{ todoList.tasksDone }}/{{ todoList.tasksCount }} Tasks done</p>
+    <p ng-if="!todoList.tasksCount" class="col-xs-4">No tasks available</p>
 
     <div class="col-xs-8">
       <div class="pull-right btn-group btn-group-xs">
