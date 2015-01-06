@@ -24,7 +24,7 @@
         </thead>
 
         <tbody>
-          <tr class="table-list" ng-repeat="task in todoList.tasks | filter:activeFilter">
+          <tr class="table-list" ng-repeat="task in todoList.tasks | tasksActive:activeFilter">
             <td class="text-center">
               <button class="btn btn-link btn-xs btn-block" ng-click="updateTaskStatus(task)">
                 <i ng-if="task.done" class="glyphicon glyphicon-ok text-success"></i>
