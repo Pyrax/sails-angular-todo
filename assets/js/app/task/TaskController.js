@@ -6,13 +6,13 @@
 
   var taskController = angular.module('app.taskController', ['app.taskService']);
 
-  taskController.controller('TaskController', ['$scope', '$location', '$routeParams', '$task', 'todoList', 'tasksActiveFilter',
-    function($scope, $location, $routeParams, $task, todoList, tasksActiveFilter) {
+  taskController.controller('TaskController', ['$scope', '$location', '$routeParams', '$task', 'todoList',
+    function($scope, $location, $routeParams, $task, todoList) {
 
     $scope.todoList = todoList;
 
     $scope.setFilter = function(doSet) {
-      $scope.activeFilter = doSet;
+      $scope.activeFilter = !doSet;
 
       $scope.filterAllClass = undefined;
       $scope.filterActiveClass = undefined;
